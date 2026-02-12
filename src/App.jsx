@@ -17,6 +17,10 @@ export default function App() {
       </option>
     })
 
+    const completeMovieList = movieList.map((movie, index) => {
+      return <li key={index} className='list-group-item d-flex justify-content-between'><strong className='movie-title'>{movie.title}</strong><span className='movie-genre small'>{movie.genre}</span></li>
+    })
+
   const [selectedGenre, setSelectedGenre] = useState("");
  
   return <div className='container'>
@@ -30,6 +34,11 @@ export default function App() {
                   {movieGenres}
                 </select>
                 <label className="input-group-text" htmlFor="inputGroupSelect02">Genere</label>
+              </div>
+              <div>
+                <ul className='list-group'>
+                  {completeMovieList}
+                </ul>
               </div>
             </main>
          </div>
