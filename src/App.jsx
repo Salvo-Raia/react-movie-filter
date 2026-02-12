@@ -4,15 +4,20 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 import movieList from './data/movielist';
+import { useState } from 'react';
 
 export default function App() {
+    const handleGenreSelection = (e) => {
+      setSelectedGenre(e.target.value)
+    }
+
     const movieGenres = movieList.map((singleMovie, index) => {
       return <option key={index} value={singleMovie.genre}>
       {singleMovie.genre}
       </option>
     })
 
-
+  const [selectedGenre, setSelectedGenre] = useState("");
  
   return <div className='container'>
             <header>
@@ -21,7 +26,7 @@ export default function App() {
             </header>
             <main>
               <div className="input-group mb-3">
-                <select className="form-select" id="inputGroupSelect02">
+                <select className="form-select" id="inputGroupSelect02" onChange={handleGenreSelection}>
                   {movieGenres}
                 </select>
                 <label className="input-group-text" htmlFor="inputGroupSelect02">Genere</label>
