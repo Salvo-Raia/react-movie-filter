@@ -4,25 +4,27 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
 import movieList from './data/movielist';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
-    const handleGenreSelection = (e) => {
-      setSelectedGenre(e.target.value)
-    }
+    // Array generi // 
+    const movieGenres = movieList.map((singleMovie) => singleMovie.genre)
+    // Array di opzioni per select //
+    const movieSelectItems = movieGenres.map((genre, index) => <option key={index} value={genre}>{genre}</option>)
+    // Lettura valore select 
+    const handleGenreSelection = (e) => {setSelectedGenre(e.target.value)}
+    // Aggiornamento stato genere 
+    const [selectedGenre, setSelectedGenre] = useState("");
+    const [filteredGenre, setFilteredGenre] = useState(movieList); 
 
-    const movieGenres = movieList.map((singleMovie, index) => {
-      return <option key={index} value={singleMovie.genre}>
-      {singleMovie.genre}
-      </option>
-    })
+    useEffect(
+      () => {
+        const updatedFilteredGenre = movieList.filter(movie => movie.genre === selectedGenre)
+        setFilteredGenre(updatedFilteredGenre)
+      },
+      [selectedGenre]
+    )
 
-    const completeMovieList = movieList.map((movie, index) => {
-      return <li key={index} className='list-group-item d-flex justify-content-between'><strong className='movie-title'>{movie.title}</strong><span className='movie-genre small'>{movie.genre}</span></li>
-    })
-
-  const [selectedGenre, setSelectedGenre] = useState("");
- 
   return <div className='container'>
             <header>
              <h1>Movie list</h1>
@@ -30,18 +32,16 @@ export default function App() {
             </header>
             <main>
               <div className="input-group mb-3">
-                <select className="form-select" id="inputGroupSelect02" onChange={handleGenreSelection}>
-                  {movieGenres}
+                <select className="form-select" id="movie-genre-select" value={selectedGenre} onChange={handleGenreSelection}>
+                  {movieSelectItems}
                 </select>
-                <label className="input-group-text" htmlFor="inputGroupSelect02">Genere</label>
+                <label className="input-group-text" htmlFor="movie-genre-select">Genere</label>
               </div>
               <div>
                 <ul className='list-group'>
-                  {completeMovieList}
+                {filteredGenre.map((movie, index) => <li key={index} className='list-group-item d-flex justify-content-between'><strong className='movie-title'>{movie.title}</strong><span className='movie-genre small'>{movie.genre}</span></li>)}
                 </ul>
               </div>
             </main>
          </div>
 }
-
-
