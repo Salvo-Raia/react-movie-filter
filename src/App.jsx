@@ -7,8 +7,15 @@ import movieList from './data/movielist';
 import { useEffect, useState } from 'react';
 
 export default function App() {
-    // Array generi // 
-    const movieGenres = movieList.map((singleMovie) => singleMovie.genre)
+    // Array generi evitando doppioni // 
+    const movieGenres = []; 
+
+    for (let i = 0; i < movieList.length; i++) {
+      const currentGenre = movieList[i].genre; 
+      if (!movieGenres.includes(currentGenre)) {
+        movieGenres.push(currentGenre)
+      }
+    }
     // Array di opzioni per select //
     const movieSelectItems = movieGenres.map((genre, index) => <option key={index} value={genre}>{genre}</option>)
     // Lettura valore select 
