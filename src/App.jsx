@@ -1,9 +1,11 @@
+// Movie Datas
+import movieList from './data/movielist';
 // Bootstrap Icons
 import 'bootstrap-icons/font/bootstrap-icons.css'
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css';
-import movieList from './data/movielist';
+// Custom CSS
+import './css/App.css'
 import { useEffect, useState } from 'react';
 
 export default function App() {
