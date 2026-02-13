@@ -31,23 +31,23 @@ export default function App() {
         let updatedFilteredList; 
         // Cerca per genere
         (selectedGenre === "" || selectedGenre === "Tutti") ? updatedFilteredList = movieList :  updatedFilteredList = movieList.filter(movie => movie.genre === selectedGenre); 
-        
+        // Cerca per titolo 
         if (movieSearch === "" && (selectedGenre === "" || selectedGenre === "Tutti")) {
           updatedFilteredList = movieList;
         } else {
-          updatedFilteredList = updatedFilteredList.filter(movie => movie.title.toLowerCase().includes(movieSearch.toLocaleLowerCase()));
+          updatedFilteredList = updatedFilteredList.filter(movie => movie.title.toLowerCase().includes(movieSearch.toLocaleLowerCase().trim()));
         }
 
+       // Renderizza il risultato
         setFilteredGenre(updatedFilteredList);
       },
       [selectedGenre, movieSearch]
     )
 
-
   return <div className='container'>
             <header>
              <h1>Movie list</h1>
-             <p>Seleziona un genere per visionare i film disponibili</p>
+             <p>Seleziona un genere per visionare i film disponibili oppure prova a digitare un titolo</p>
             </header>
             <main>
               <div className="input-group mb-3">
@@ -58,9 +58,10 @@ export default function App() {
                 <label className="input-group-text" htmlFor="movie-genre-select">Genere</label>
               </div>
               <div className="input-group">
+                <label htmlFor="cerca-titolo" className="input-group-text">Cerca titolo</label>
                 <input id='cerca-titolo' type="text" className="form-control" placeholder="Es. Interstellar" aria-label="Cerca titolo" aria-describedby="addon-wrapping" onChange={handleMovieSearch} />
               </div>
-              <div>
+              <div className='my-3'>
                 <ul className='list-group'>
                 {filteredGenre.map((movie, index) => <li key={index} className='list-group-item d-flex justify-content-between'><strong className='movie-title'>{movie.title}</strong><span className='movie-genre small'>{movie.genre}</span></li>)}
                 </ul>
