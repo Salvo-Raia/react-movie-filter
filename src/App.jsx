@@ -32,7 +32,7 @@ export default function App() {
         // Cerca per genere
         (selectedGenre === "" || selectedGenre === "Tutti") ? updatedFilteredList = movieList :  updatedFilteredList = movieList.filter(movie => movie.genre === selectedGenre); 
         
-        if (movieSearch === "") {
+        if (movieSearch === "" && (selectedGenre === "" || selectedGenre === "Tutti")) {
           updatedFilteredList = movieList;
         } else {
           updatedFilteredList = updatedFilteredList.filter(movie => movie.title.toLowerCase().includes(movieSearch.toLocaleLowerCase()));
