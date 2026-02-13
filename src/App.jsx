@@ -20,17 +20,29 @@ export default function App() {
     const movieSelectItems = movieGenres.map((genre, index) => <option key={index} value={genre}>{genre}</option>)
     // Lettura valore select 
     const handleGenreSelection = (e) => {setSelectedGenre(e.target.value)}
+    const handleMovieSearch = (e) => {setMovieSearch(e.target.value)}
     // Aggiornamento stato genere 
     const [selectedGenre, setSelectedGenre] = useState("");
     const [filteredGenre, setFilteredGenre] = useState(movieList); 
-
+    const [movieSearch, setMovieSearch] = useState("");
+    // useEffect e render lista 
     useEffect(
       () => {
-        const updatedFilteredGenre = movieList.filter(movie => movie.genre === selectedGenre)
-        setFilteredGenre(updatedFilteredGenre)
+        let updatedFilteredList; 
+        // Cerca per genere
+        (selectedGenre === "" || selectedGenre === "Tutti") ? updatedFilteredList = movieList :  updatedFilteredList = movieList.filter(movie => movie.genre === selectedGenre); 
+        
+        if (movieSearch === "") {
+          updatedFilteredList = movieList;
+        } else {
+          updatedFilteredList = updatedFilteredList.filter(movie => movie.title.toLowerCase().includes(movieSearch.toLocaleLowerCase()));
+        }
+
+        setFilteredGenre(updatedFilteredList);
       },
-      [selectedGenre]
+      [selectedGenre, movieSearch]
     )
+
 
   return <div className='container'>
             <header>
@@ -40,9 +52,13 @@ export default function App() {
             <main>
               <div className="input-group mb-3">
                 <select className="form-select" id="movie-genre-select" value={selectedGenre} onChange={handleGenreSelection}>
+                <option value="Tutti">Tutti</option>
                   {movieSelectItems}
                 </select>
                 <label className="input-group-text" htmlFor="movie-genre-select">Genere</label>
+              </div>
+              <div className="input-group">
+                <input id='cerca-titolo' type="text" className="form-control" placeholder="Es. Interstellar" aria-label="Cerca titolo" aria-describedby="addon-wrapping" onChange={handleMovieSearch} />
               </div>
               <div>
                 <ul className='list-group'>
