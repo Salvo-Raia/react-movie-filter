@@ -8,24 +8,13 @@ Building a React movie filtering system using useState and useEffect to dynamica
 
 | Repository | Project | Category | Main Focus | Exercise |
 |:--|:--|:--|:--|:--|
-| react-movie-filter | React Movie Filter | Exercise | React useState, useEffect & Dynamic filtering | 36/50 |
+| react-movie-filter | React Movie Filter | Exercise | React, useState, useEffect & Dynamic filtering | 36/50 |
 
 ## Assignment
 
 Create a new React project and implement a **movie filtering system** that allows users to filter a list of films by genre.
 
-The movie array is already provided:
-
-```jsx
-[
-  { title: "Inception", genre: "Fantascienza" },
-  { title: "Il Padrino", genre: "Thriller" },
-  { title: "Titanic", genre: "Romantico" },
-  { title: "Batman", genre: "Azione" },
-  { title: "Interstellar", genre: "Fantascienza" },
-  { title: "Pulp Fiction", genre: "Thriller" },
-];
-```
+The movie array is already provided.
 
 Use React state and the `useEffect` hook to manage the dynamic filtering process.
 
@@ -36,7 +25,6 @@ Use React state and the `useEffect` hook to manage the dynamic filtering process
 Try to implement the following additional features.
 
 - Add a search input that allows users to filter movies by title as well as by genre.
-
 - Create a form that allows users to add new movies to the list.
 
 ##### Notes
