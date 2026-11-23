@@ -8,7 +8,7 @@ Building a React movie filtering system using useState and useEffect to dynamica
 
 | Repository | Project | Category | Main Focus | Exercise |
 |:--|:--|:--|:--|:--|
-| react-movie-filter | React Movie Filter | Exercise | React, useState, useEffect & Dynamic filtering | 36/50 |
+| react-movie-filter | React Movie Filter | Exercise | React, useState, useEffect, dynamic filtering | 36/50 |
 
 ## Assignment
 
