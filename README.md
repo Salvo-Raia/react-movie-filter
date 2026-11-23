@@ -37,6 +37,7 @@ We recommend this reading.
 [You might not need an effect - React documentation](https://react.dev/learn/you-might-not-need-an-effect)
 
 ## Technologies
+
 ![JSX](https://img.shields.io/badge/JSX-6A1B9A?style=flat-square&logo=react&logoColor=F7DF1E&labelColor=6A1B9A&color=6A1B9A) 
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css&logoColor=white) 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) 
