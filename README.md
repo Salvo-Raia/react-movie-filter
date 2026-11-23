@@ -33,6 +33,8 @@ Use React state and the `useEffect` hook to manage the dynamic filtering process
 
 #### Bonus challenge
 
+Try to implement the following additional features.
+
 - Add a search input that allows users to filter movies by title as well as by genre.
 
 - Create a form that allows users to add new movies to the list.
@@ -44,10 +46,14 @@ Use React state and the `useEffect` hook to manage the dynamic filtering process
 
 We recommend this reading.
 
-[You Might Not Need an Effect - React Documentation](https://react.dev/learn/you-might-not-need-an-effect)
+[You might not need an effect - React documentation](https://react.dev/learn/you-might-not-need-an-effect)
 
 ## Technologies
-![JSX](https://img.shields.io/badge/JSX-6A1B9A?style=flat-square&logo=react&logoColor=F7DF1E&labelColor=6A1B9A&color=6A1B9A) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![JSX](https://img.shields.io/badge/JSX-6A1B9A?style=flat-square&logo=react&logoColor=F7DF1E&labelColor=6A1B9A&color=6A1B9A) 
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css&logoColor=white) 
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) 
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) 
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 
 ## What I learned
 
